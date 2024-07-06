@@ -1,0 +1,162 @@
+:root {
+  --background-color-light: #f0f4f8;
+  --background-color-dark: #333;
+  --btn-color-light: #5c67ff;
+  --btn-color-dark: #444;
+  --btn-text-color: #fff;
+  --text-color-light: #333;
+  --text-color-dark: #f0f4f8;
+  --container-bg-light: #fff;
+  --container-bg-dark: #444;
+  --container-border-light: #ddd;
+  --container-border-dark: #555;
+  --container-shadow-light: rgba(0, 0, 0, 0.1);
+  --container-shadow-dark: rgba(0, 0, 0, 0.5);
+  --link-hover-color-light: #5c67ff;
+  --link-hover-color-dark: #888;
+}
+
+/* Default to light mode */
+:root {
+  --background-color: var(--background-color-light);
+  --btn-color: var(--btn-color-light);
+  --text-color: var(--text-color-light);
+  --container-bg: var(--container-bg-light);
+  --container-border: var(--container-border-light);
+  --container-shadow: var(--container-shadow-light);
+  --link-hover-color: var(--link-hover-color-light);
+}
+
+/* Dark mode styles */
+body.dark-mode {
+  --background-color: var(--background-color-dark);
+  --btn-color: var(--btn-color-dark);
+  --text-color: var(--text-color-dark);
+  --container-bg: var(--container-bg-dark);
+  --container-border: var(--container-border-dark);
+  --container-shadow: var(--container-shadow-dark);
+  --link-hover-color: var(--link-hover-color-dark);
+}
+
+body {
+  background-color: var(--background-color);
+  font-family: 'Arial', sans-serif;
+  color: var(--text-color);
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+  text-align: center;
+  height: 100vh;
+  min-height: 500px;
+  background-color: var(--container-bg);
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 8px var(--container-shadow);
+  transition: transform 200ms ease-in-out, box-shadow 200ms ease-in-out;
+  animation: floatAnimation 1s ease-in-out;
+}
+
+.container .hero {
+  max-width: 200px;
+  margin: 0 auto;
+}
+
+.container span {
+  display: flex;
+  gap: 25px;
+  justify-content: center;
+}
+
+.container span a {
+  margin: 0;
+}
+
+.container span a img {
+  width: 30px;
+}
+
+.container a {
+  width: fit-content;
+  align-self: center;
+  text-decoration: none;
+  color: var(--text-color);
+  transition: color 200ms ease-in-out;
+}
+
+.container a:hover {
+  color: var(--link-hover-color);
+}
+
+.container button {
+  background-color: black; /* Set button color to black */
+  color: var(--btn-text-color);
+  border: none;
+  border-radius: 20px;
+  width: 126px;
+  height: 50px;
+  font-size: 20px;
+  font-weight: bold;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  transition: box-shadow 200ms ease-in-out, transform 200ms ease-in-out;
+  cursor: pointer;
+  margin-top: 20px; /* Adjust this value to move the button lower */
+  animation: buttonFloatAnimation 1s ease-in-out; /* Apply floating animation to button */
+}
+
+.container button:hover {
+  transform: scale(1.05);
+}
+
+.container button:active {
+  transform: translateY(2px);
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.25);
+}
+
+.colorModeContainer {
+  position: relative;
+}
+
+.colorMode {
+  position: absolute;
+  right: 0;
+  width: 25px;
+  cursor: pointer;
+}
+
+.description {
+  max-width: 24ch;
+  margin: 0 auto;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+@media (min-width: 800px) {
+  .container {
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 40px;
+  }
+
+  .container .hero {
+    max-width: 350px;
+    width: 350px;
+  }
+}
+
+@media (min-width: 1400px) {
+  .container .hero {
+    max-width: 400px;
+    width: 400px;
+  }
+}
